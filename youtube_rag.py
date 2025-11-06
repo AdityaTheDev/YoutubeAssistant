@@ -7,6 +7,9 @@ from langchain_groq import ChatGroq
 from langchain_core.output_parsers import StrOutputParser
 from langchain_classic.retrievers.contextual_compression import ContextualCompressionRetriever
 from langchain_classic.retrievers.document_compressors import LLMChainExtractor
+# from langchain.retrievers import ContextualCompressionRetriever
+# from langchain.retrievers.document_compressors import LLMChainExtractor
+
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 
 from embeddings import embedding_model
@@ -16,7 +19,7 @@ load_dotenv()
 
 def generate_answer(url, question):
     """Generates an answer for a given YouTube video and question, using cached embeddings if available."""
-
+    
     if not youtube_video_exists(url):
         return " The provided YouTube URL is invalid or unavailable."
 
