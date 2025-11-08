@@ -85,7 +85,7 @@ with tab1:
                         st.markdown(f"### 🧠 Answer\n\n{answer}")
                         st.markdown("</div>", unsafe_allow_html=True)
                     else:
-                        st.info(" Couldn't generate an answer from the transcript.")
+                        st.info(" Couldn't generate an answer from the video given.")
                 except Exception as e:
                     st.error("🚨 An unexpected error occurred while processing the video.")
                     st.exception(traceback.format_exc())
@@ -104,7 +104,7 @@ with tab2:
         elif not youtube_video_exists(youtube_url_summary):
             st.error("❌ Invalid or unavailable YouTube video. Please check the link.")
         else:
-            with st.spinner("⏳ Fetching transcript and generating summary..."):
+            with st.spinner("⏳ Generating summary..."):
                 try:
                     summary = generate_summary(youtube_url_summary)
                     if summary:
@@ -112,7 +112,7 @@ with tab2:
                         st.markdown(f"### 🧾 Summary\n\n{summary}")
                         st.markdown("</div>", unsafe_allow_html=True)
                     else:
-                        st.info("😕 Couldn't generate a summary from the transcript.")
+                        st.info("😕 Couldn't generate a summary from the video.")
                 except Exception as e:
                     st.error(" An unexpected error occurred while summarizing the video.")
                     st.exception(traceback.format_exc())
